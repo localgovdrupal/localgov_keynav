@@ -1,0 +1,5 @@
+name: 'LocalGov KeyNav'
+type: module
+description: 'Allows you to get to parts of your site by typing keyboard shortcuts.'
+package: LocalGov Drupal
+core_version_requirement: ^10 || ^11

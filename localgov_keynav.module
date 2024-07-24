@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for LocalGov KeyNav module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function localgov_keynav_preprocess_page(&$variables) {
+
+  // Get the current user.
+  $current_user = \Drupal::currentUser();
+
+  // Check if the user has the 'use keynav' permission.
+  if ($current_user->hasPermission('Use LocalGov keynav')) {
+    // Check if the field 'localgov_keynav' on the user profile is checked.
+    // This allows individual users to disable the keynav feature, even if they
+    // have the permission to use it.
+    $user = User::load($current_user->id());
+    $keynav_disabled = $user->get('localgov_keynav')->value;
+
+    // If the field is unchecked, add the keynav library and settings to the
+    // page.
+    if (!$keynav_disabled) {
+      $module_path = \Drupal::service('extension.path.resolver')->getPath('module', 'localgov_keynav');
+      $settings = [
+        'modulePath' => $module_path,
+      ];
+
+      // Attach the settings to the page.
+      $variables['#attached']['drupalSettings']['localgovKeyNav'] = $settings;
+
+      // Add the keynav library to the page.
+      $variables['#attached']['library'][] = 'localgov_keynav/keynav';
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function localgov_keynav_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, $items = NULL) {
+  if ($field_definition->getName() == 'localgov_keynav') {
+    if ($operation == 'edit' || $operation == 'delete') {
+
+      // Check if the current user has permission to use the keynav feature.
+      if ($account->hasPermission('Use LocalGov keynav')) {
+        return AccessResult::allowed();
+      }
+      else {
+        return AccessResult::forbidden();
+      }
+    }
+  }
+  // No opinion.
+  return AccessResult::neutral();
+}

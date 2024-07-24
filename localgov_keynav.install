@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov KeyNav module.
+ */
+
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_keynav_install() {
+  // Set the 'localgov_keynav' field on the user entity
+  // manage form display page.
+  $form_display = \Drupal::entityTypeManager()->getStorage('entity_form_display')->load('user.user.default');
+
+  // Load the default entity form display or create one if it doesn't exist.
+  if (!$form_display) {
+    $form_display = EntityFormDisplay::create([
+      'targetEntityType' => 'user',
+      'bundle' => 'user',
+      'mode' => 'default',
+      'status' => TRUE,
+    ]);
+  }
+
+  $form_display->setComponent('localgov_keynav', [
+    'type' => 'boolean_checkbox',
+    'region' => 'content',
+    'weight' => 100,
+  ])->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function localgov_keynav_uninstall() {
+
+  // Delete localgov_keynav field storage from user entity.
+  $localgov_keynav_field_storage = FieldStorageConfig::loadByName('user', 'localgov_keynav');
+  if ($localgov_keynav_field_storage) {
+    $localgov_keynav_field_storage->delete();
+  }
+
+  // Delete the config for localgov_keynav field on the user.
+  $localgov_keynav_config = \Drupal::configFactory()->getEditable('field.field.user.user.localgov_keynav');
+  if ($localgov_keynav_config) {
+    $localgov_keynav_config->delete();
+  }
+}

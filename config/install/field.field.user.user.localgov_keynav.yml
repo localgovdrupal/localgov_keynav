@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.localgov_keynav
+  module:
+    - user
+id: user.user.localgov_keynav
+field_name: localgov_keynav
+entity_type: user
+bundle: user
+label: 'Turn off keyboard shortcuts'
+description: 'We have developed some keyboard shortcuts you can use to navigate to parts of your LocalGov Drupal website. If you wish to turn this functionality off, you can check this box.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

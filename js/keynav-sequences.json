@@ -1,0 +1,58 @@
+[
+  {
+    "keynavSequence": "ac",
+    "url": "/admin/content"
+  },
+  {
+    "keynavSequence": "acac",
+    "url": "/node/add"
+  },
+  {
+    "keynavSequence": "acna",
+    "url": "/node/add"
+  },
+  {
+    "keynavSequence": "as",
+    "url": "/admin/structure"
+  },
+  {
+    "keynavSequence": "aa",
+    "url": "/admin/appearance"
+  },
+  {
+    "keynavSequence": "am",
+    "url": "/admin/modules"
+  },
+  {
+    "keynavSequence": "ap",
+    "url": "/admin/people"
+  },
+  {
+    "keynavSequence": "ar",
+    "url": "/admin/reports"
+  },
+  {
+    "keynavSequence": "acon",
+    "url": "/admin/config"
+  },
+  {
+    "keynavSequence": "ah",
+    "url": "/admin/help"
+  },
+  {
+    "keynavSequence": "nasp",
+    "url": "/node/add/localgov_services_page"
+  },
+  {
+    "keynavSequence": "naslp",
+    "url": "/node/add/localgov_services_landing"
+  },
+  {
+    "keynavSequence": "nasslp",
+    "url": "/node/add/localgov_services_sublanding"
+  },
+  {
+    "keynavSequence": "acdf",
+    "url": "/admin/content/directories/facets"
+  }
+]
