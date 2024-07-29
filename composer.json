@@ -1,0 +1,8 @@
+{
+    "name": "localgovdrupal/localgov_keynav",
+    "description": "Keyboard navigation for LGD backends",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_keynav",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev"
+}
