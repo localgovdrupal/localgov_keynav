@@ -16,6 +16,9 @@
       const focusableElementsArray = Array.from(document.querySelectorAll('input:not([disabled])', 'textarea:not([disabled])', '[contenteditable]'));
       const ckeditors = document.querySelectorAll('.form-textarea-wrapper');
       const toolbarLinks = document.querySelectorAll('.toolbar-menu-administration > .toolbar-menu > li > a');
+      // Access custom keynav configuration item for any sites that have added
+      // custom patterns.
+      const customKeynavPatterns = drupalSettings.localgovKeyNav.customKeynavPatterns.split('\r\n') || [];
 
       function handleToolbarItems(link) {
           window.location.href = link.href;
@@ -107,6 +110,18 @@
                 });
               }
             });
+            if (customKeynavPatterns.length > 0) {
+              customKeynavPatterns.forEach((pattern) => {
+                const splitPattern = pattern.split('|');
+                const key = splitPattern[0];
+                const value = splitPattern[1];
+                if (keySequence === `lgd${key}`) {
+                  window.location.href = `/${value}`;
+                  keySequence = '';
+                }
+              });
+            }
+
           } else if (!'lgd'.startsWith(keySequence)) {
             // If the current sequence cannot possibly match 'lgd', reset it
             keySequence = '';

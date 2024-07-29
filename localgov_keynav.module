@@ -62,3 +62,16 @@ function localgov_keynav_entity_field_access($operation, FieldDefinitionInterfac
   // No opinion.
   return AccessResult::neutral();
 }
+
+/**
+ * Implements hook_page_attachments().
+ */
+function localgov_keynav_page_attachments(array &$attachments) {
+  $config = \Drupal::config('localgov_keynav.settings');
+  $custom_keynav_patterns = $config->get('custom_keynav_patterns');
+
+  // Attach the configuration to drupalSettings.
+  $attachments['#attached']['drupalSettings']['localgovKeyNav'] = [
+    'customKeynavPatterns' => $custom_keynav_patterns,
+  ];
+}

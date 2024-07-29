@@ -9,7 +9,6 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Render\Element;
 
 class SettingsForm extends ConfigFormBase {
 
@@ -52,11 +51,6 @@ class SettingsForm extends ConfigFormBase {
           </ul>
         Any items you add here will override the default patterns if the default pattern is also present.
       '),
-    ];
-
-    // Attach the configuration to drupalSettings.
-    $form['#attached']['drupalSettings']['localgovKeyNav'] = [
-      'customKeynavPatterns' => $this->config('localgov_keynav.settings')->get('custom_keynav_patterns'),
     ];
 
     return parent::buildForm($form, $form_state);
