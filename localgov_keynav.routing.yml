@@ -1,0 +1,7 @@
+localgov_keynav.settings:
+  path: 'admin/config/user-interface/localgov-keynav'
+  defaults:
+    _title: 'LocalGov KeyNav settings'
+    _form: 'Drupal\localgov_keynav\Form\SettingsForm'
+  requirements:
+    _permission: 'Add LocalGov Keynav shortcuts'
