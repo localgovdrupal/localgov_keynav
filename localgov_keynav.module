@@ -9,6 +9,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\user\Entity\User;
+use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_preprocess_page().
@@ -74,4 +75,30 @@ function localgov_keynav_page_attachments(array &$attachments) {
   $attachments['#attached']['drupalSettings']['localgovKeyNav'] = [
     'customKeynavPatterns' => $custom_keynav_patterns,
   ];
+}
+
+// Create a help page for the module.
+function localgov_keynav_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.localgov_keynav':
+      $output = '';
+      $output .= '<h3>' . t('About LocalGov KeyNav') . '</h3>';
+      $output .= '<p>' . t('LocalGov KeyNav is a module that provides keyboard navigation for users.') . '</p>';
+      $output .= '<h3>' . t('How to use LocalGov KeyNav') . '</h3>';
+      $output .= '<p>' . t('When on any page, you can start typing <strong>lgd</strong> followed by certain combinations of characters.') . '</p>';
+      $output .= '<p>' . t('For example') . '</p>';
+      $output .= '<ul><li>' . t('typing <strong>lgd</strong> followed by <strong>h</strong> will take you to the homepage.') . '</li>';
+      $output .= '<li>' . t('typing <strong>lgd</strong> followed by <strong>ac</strong> will take you to the admin/content page.') . '</li>';
+      $output .= '<li>' . t('typing <strong>lgd</strong> followed by <strong>t3</strong> will take you to the 3rd tab in your admin toolbar.') . '</li>';
+      $output .= '<li>' . t('typing <strong>lgd</strong> followed by <strong>t3.4</strong> will take you to the 4th subitem of the 3rd tab.') . '</li>';
+      $output .= '<li>' . t('typing <strong>lgd</strong> followed by <strong>t3.4.2</strong> will take you to the 2nd subitem of the the 4th subitem of the 3rd tab') . '</li>';
+      $output .= '</ul>';
+      $output .= '<h3>' . t('Custom KeyNav patterns') . '</h3>';
+      $output .= '<p>' . t('You can define custom KeyNav patterns in the <a href="/admin/config/user-interface/localgov-keynav">settings page</a>.') . '</p>';
+      $output .= '<h3>' . t('Full list of commands') . '</h3>';
+      $output .= '<p>' . t('The full list of commands can be found in the <a href="https://github.com/localgovdrupal/localgov_keynav/blob/1.x/js/keynav-sequences.json">GitHub page</a>.') . '</p>';
+      $output .= '<h3>' . t('Disabling KeyNav') . '</h3>';
+      $output .= '<p>' . t('You can disable KeyNav for your user account by going to your <a href="/user">user profile</a> and checking the "Turn off keyboard shortcuts" checkbox.') . '</p>';
+      return $output;
+  }
 }

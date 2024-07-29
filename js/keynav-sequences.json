@@ -1,5 +1,9 @@
 [
   {
+    "keynavSequence": "h",
+    "url": "/"
+  },
+  {
     "keynavSequence": "ac",
     "url": "/admin/content"
   },
