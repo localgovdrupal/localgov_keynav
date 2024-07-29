@@ -16,9 +16,17 @@
       const focusableElementsArray = Array.from(document.querySelectorAll('input:not([disabled])', 'textarea:not([disabled])', '[contenteditable]'));
       const ckeditors = document.querySelectorAll('.form-textarea-wrapper');
       const toolbarLinks = document.querySelectorAll('.toolbar-menu-administration > .toolbar-menu > li > a');
+
       // Access custom keynav configuration item for any sites that have added
       // custom patterns.
-      const customKeynavPatterns = drupalSettings.localgovKeyNav.customKeynavPatterns.split('\r\n') || [];
+      let customKeynavPatterns = [];
+      const customKeynavPatternsFromConfig = drupalSettings.localgovKeyNav.customKeynavPatterns;
+      if (customKeynavPatternsFromConfig) {
+        customKeynavPatternsFromConfig.split('\r\n').forEach((pattern) => {
+          customKeynavPatterns.push(pattern);
+        });
+      }
+
       function handleToolbarItems(link) {
           window.location.href = link.href;
           keySequence = '';
