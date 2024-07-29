@@ -19,7 +19,6 @@
       // Access custom keynav configuration item for any sites that have added
       // custom patterns.
       const customKeynavPatterns = drupalSettings.localgovKeyNav.customKeynavPatterns.split('\r\n') || [];
-
       function handleToolbarItems(link) {
           window.location.href = link.href;
           keySequence = '';
