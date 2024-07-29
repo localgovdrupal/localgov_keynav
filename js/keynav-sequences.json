@@ -4,14 +4,6 @@
     "url": "/admin/content"
   },
   {
-    "keynavSequence": "acac",
-    "url": "/node/add"
-  },
-  {
-    "keynavSequence": "acna",
-    "url": "/node/add"
-  },
-  {
     "keynavSequence": "as",
     "url": "/admin/structure"
   },
@@ -40,16 +32,76 @@
     "url": "/admin/help"
   },
   {
-    "keynavSequence": "nasp",
+    "keynavSequence": "na",
+    "url": "/node/add"
+  },
+  {
+    "keynavSequence": "nadc",
+    "url": "/node/add/localgov_directory"
+  },
+  {
+    "keynavSequence": "nadp",
+    "url": "/node/add/localgov_directories_page"
+  },
+  {
+    "keynavSequence": "nadv",
+    "url": "/node/add/localgov_directories_venue"
+  },
+  {
+    "keynavSequence": "nae",
+    "url": "/node/add/localgov_event"
+  },
+  {
+    "keynavSequence": "nago",
+    "url": "/node/add/localgov_guides_overview"
+  },
+  {
+    "keynavSequence": "nagp",
+    "url": "/node/add/localgov_guides_page"
+  },
+  {
+    "keynavSequence": "nanr",
+    "url": "/node/add/localgov_newsroom"
+  },
+  {
+    "keynavSequence": "nan",
+    "url": "/node/add/localgov_news_article"
+  },
+  {
+    "keynavSequence": "napcp",
+    "url": "/node/add/localgov_publication_cover_page"
+  },
+  {
+    "keynavSequence": "nap",
+    "url": "/node/add/localgov_publication_page"
+  },
+  {
+    "keynavSequence": "nas",
     "url": "/node/add/localgov_services_page"
   },
   {
-    "keynavSequence": "naslp",
+    "keynavSequence": "nasl",
     "url": "/node/add/localgov_services_landing"
   },
   {
-    "keynavSequence": "nasslp",
+    "keynavSequence": "nassl",
     "url": "/node/add/localgov_services_sublanding"
+  },
+  {
+    "keynavSequence": "nasbso",
+    "url": "/node/add/localgov_step_by_step_overview"
+  },
+  {
+    "keynavSequence": "nasbs",
+    "url": "/node/add/localgov_step_by_step_page"
+  },
+  {
+    "keynavSequence": "naso",
+    "url": "/node/add/localgov_subsites_overview"
+  },
+  {
+    "keynavSequence": "nasp",
+    "url": "/node/add/localgov_subsites_page"
   },
   {
     "keynavSequence": "acdf",
