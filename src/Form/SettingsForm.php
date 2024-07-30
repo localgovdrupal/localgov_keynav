@@ -66,8 +66,8 @@ class SettingsForm extends ConfigFormBase {
         Do not include the lgd part.<br>
         For example, if you want:<br>
           <ul>
-            <li><strong>lgdnews</strong> to go to <strong>/news</strong>, add <strong>lgdnews|news</strong></li>
-            <li><strong>lgdacu</strong> to go to <strong>/about/contact-us</strong>, add <strong>lgdacu|about/contact-us</strong></li>
+            <li><strong>lgdnews</strong> to go to <strong>/news</strong>, add <strong>news|news</strong></li>
+            <li><strong>lgdacu</strong> to go to <strong>/about/contact-us</strong>, add <strong>acu|about/contact-us</strong></li>
           </ul>
         Any items you add here will override the default patterns if the default pattern is also present.
       '),
